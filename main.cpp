@@ -1,7 +1,7 @@
 //Edward Cruz, Sep 17, 2019
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using namespace std;
 
@@ -55,7 +55,7 @@ int main() {
 
           } else if ((b - 4 * a * c) < 0) {
               //pair of complex solutions
-              tempComplex = sqrtf(fabsf(pow(b, 2) - (4 * a * c))) / (2*a);
+              tempComplex = sqrtf(fabsf(powf(b, 2) - (4 * a * c))) / (2*a);
               x1 = -b / (2*a);
               x2 = -b / (2*a);
 
