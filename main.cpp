@@ -47,8 +47,7 @@ int main() {
 
               cout << "\n\tTwo real roots. X1 = " << x1 << ", X2 = " << x2;
 
-          } else if ((-b + sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a) ==
-                    ((-b - sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a))) {
+          } else if ((b - (4 * a * c)) == 0) {
               //ONE REAL SOLUTION, repeated
               x1 = (-b + sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a);
 
