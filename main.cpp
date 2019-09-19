@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-    float a, b, c, tempComplex;
+    float a, b, c, tempComplex, x1, x2;
     char  more;
 
     cout << "\nSolve quadratic equation for giving A,B,C coefficient";
@@ -20,26 +20,57 @@ int main() {
       cin  >> c;
 
 
-      //getting the discriminate
-      if ((-b - 4*a*c) > 0)
+      if (a==0)
       {
-          //TWO REAL SOLUTIONS
-          cout << "\n\tInfinite Solutions.";
+          if (b==0)
+          {
+              if(c == 0) {
+                  cout << "\n\tInfinite Solutions.";
+              }
+              else {
+                  cout << "\n\tContradict Equation.";
+              }
+          }
+          else {
+              x1 = (-c/b);
+              cout << "\n\tSingle Root. X = " << x1;
+          }
+
       }
-      else if ((-b - 4*a*c) == 0)
-      {
-          //ONE REAL SOLUTION
+      else {
+
+          //getting the discriminate
+          if ((b - (4 * a * c)) > 0) {
+              //TWO REAL SOLUTIONS
+              x1 = (-b + sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a);
+              x2 = (-b - sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a);
+
+              cout << "\n\tTwo real roots. X1 = " << x1 << ", X2 = " << x2;
+
+          } else if ((-b + sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a) ==
+                    ((-b - sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a))) {
+              //ONE REAL SOLUTION, repeated
+              x1 = (-b + sqrtf(powf(b, 2) - (4*a*c) ) )  / (2*a);
+
+              cout << "\n\tRepeated root. X = " << x1;
+
+          } else if ((b - 4 * a * c) < 0) {
+              //pair of complex solutions
+              tempComplex = sqrtf(fabsf(pow(b, 2) - (4 * a * c))) / (2*a);
+              x1 = -b / (2*a);
+              x2 = -b / (2*a);
+
+              cout.precision(3);
+              cout << "\n\tTwo Complex Roots. X1 = " << x1 << " + " << tempComplex
+                   << "i, X2 = " << x2 << " - " << tempComplex << "i";
+
+          }
       }
-      else if ((-b - 4*a*c) < 0)
-      {
-          //pair of complex solutions
-      }
-      else {}
 
 
 
 
-      cout << "\n\tDo more (Y/N)? ";
+      cout << "\n\n\tDo more (Y/N)? ";
       cin  >> more;
 
     } while (more == 'y'|| more == 'Y');
