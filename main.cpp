@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-    float a, b, c;
+    float a, b, c, tempComplex;
     char  more;
 
     cout << "\nSolve quadratic equation for giving A,B,C coefficient";
@@ -19,19 +19,27 @@ int main() {
       cout << "\n\t\t\t\t C:";
       cin  >> c;
 
-      if ((a == 0) && (b == 0) && (c == 0))
+
+      //getting the discriminate
+      if ((-b - 4*a*c) > 0)
       {
+          //TWO REAL SOLUTIONS
           cout << "\n\tInfinite Solutions.";
       }
-
-      /*if ()
+      else if ((-b - 4*a*c) == 0)
       {
+          //ONE REAL SOLUTION
+      }
+      else if ((-b - 4*a*c) < 0)
+      {
+          //pair of complex solutions
+      }
+      else {}
 
-      }*/
 
 
 
-      cout << "\nDo more (Y/N)? ";
+      cout << "\n\tDo more (Y/N)? ";
       cin  >> more;
 
     } while (more == 'y'|| more == 'Y');
